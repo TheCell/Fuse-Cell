@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Tilelogic : MonoBehaviour
 {
+	private ClosedTiles tileState = ClosedTiles.Open;
 
     private void Start()
     {
@@ -15,6 +16,21 @@ public class Tilelogic : MonoBehaviour
     {
         
     }
+
+	public void TileClicked()
+	{
+		Debug.Log("I was clicked");
+	}
+	
+	private void TileSet(ClosedTiles whichSideWasSet)
+	{
+		Thecelleu.FlagsHelper.Set(ref tileState, whichSideWasSet);
+	}
+
+	private void UpdateDisplayedTexture()
+	{
+
+	}
 
     private void DebugEnum()
     {

@@ -62,7 +62,13 @@ public class UtilityExamples : MonoBehaviour
 
         Debug.Log("is susan included in " + names + ": " + susanIsIncluded);
         Debug.Log("is karen included in " + names + ": " + karenIsIncluded);
-    }
+
+		Thecelleu.FlagsHelper.Set(ref names, BitSettingExampleNames.Karen);
+		Debug.Log("is karen included in " + names + " now?: " + karenIsIncluded);
+
+		Thecelleu.FlagsHelper.Unset(ref names, BitSettingExampleNames.Karen);
+		Debug.Log("is karen included in " + names + " now?: " + karenIsIncluded);
+	}
 }
 
 [Flags]
