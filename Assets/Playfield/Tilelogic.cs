@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Tilelogic : MonoBehaviour
 {
+    [Header("Open, Top, Right, Bottom, Left, Close")]
+    [SerializeField] private Sprite[] sprites;
 	private ClosedTiles tileState = ClosedTiles.Open;
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -20,7 +23,9 @@ public class Tilelogic : MonoBehaviour
 	public void TileClicked()
 	{
 		Debug.Log("I was clicked");
-	}
+        tileState = Thecelleu.Utilities.RandomEnumValue<ClosedTiles>();
+        UpdateDisplayedTexture();
+    }
 	
 	private void TileSet(ClosedTiles whichSideWasSet)
 	{
@@ -29,7 +34,50 @@ public class Tilelogic : MonoBehaviour
 
 	private void UpdateDisplayedTexture()
 	{
-
+        if (spriteRenderer != null)
+        {
+            switch(tileState)
+            {
+                case ClosedTiles.Open:
+                    if (sprites.Length > 0)
+                    {
+                        spriteRenderer.sprite = sprites[0];
+                    }
+                    break;
+                case ClosedTiles.Top:
+                    if (sprites.Length > 1)
+                    {
+                        spriteRenderer.sprite = sprites[1];
+                    }
+                    break;
+                case ClosedTiles.Right:
+                    if (sprites.Length > 2)
+                    {
+                        spriteRenderer.sprite = sprites[2];
+                    }
+                    break;
+                case ClosedTiles.Bottom:
+                    if (sprites.Length > 3)
+                    {
+                        spriteRenderer.sprite = sprites[3];
+                    }
+                    break;
+                case ClosedTiles.Left:
+                    if (sprites.Length > 4)
+                    {
+                        spriteRenderer.sprite = sprites[4];
+                    }
+                    break;
+                case ClosedTiles.Close:
+                    if (sprites.Length > 5)
+                    {
+                        spriteRenderer.sprite = sprites[5];
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
 	}
 
     private void DebugEnum()
