@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace Thecelleu
 {
+
     static class Utilities
     {
+        private static System.Random randomGen = new System.Random();
+
         /// <summary>
         /// Damping towards zero. This function is not time boxed, there is not a fixed timespan to get to 0.
         /// </summary>
@@ -30,6 +33,17 @@ namespace Thecelleu
         public static float Damp(float a, float b, float lambda, float dt)
         {
             return Mathf.Lerp(a, b, 1 - Mathf.Exp(-lambda * dt));
+        }
+
+        /// <summary>
+        /// Returns a random enumeration value from all the enums of this type.
+        /// </summary>
+        /// <typeparam name="T">Enumeration Type</typeparam>
+        /// <returns>Random value of this enumeration type</returns>
+        public static T RandomEnumValue<T>()
+        {
+            var enumvaluesAsArray = System.Enum.GetValues(typeof(T));
+            return (T)enumvaluesAsArray.GetValue(randomGen.Next(enumvaluesAsArray.Length));
         }
 
         // sound

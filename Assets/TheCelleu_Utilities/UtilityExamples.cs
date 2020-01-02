@@ -17,6 +17,7 @@ public class UtilityExamples : MonoBehaviour
         dampMaximalZ = dampMaximalZ + 5f;
 
         BitSettingExample();
+        ShowDifferentEnums();
     }
 
     private void Update()
@@ -69,6 +70,19 @@ public class UtilityExamples : MonoBehaviour
 		Thecelleu.FlagsHelper.Unset(ref names, BitSettingExampleNames.Karen);
 		Debug.Log("is karen included in " + names + " now?: " + karenIsIncluded);
 	}
+
+    private void ShowDifferentEnums()
+    {
+        string valuesAsString = "";
+
+        for (int i = 0; i < 5; i++)
+        {
+            var value = Thecelleu.Utilities.RandomEnumValue<System.DayOfWeek>();
+            valuesAsString += " " + value;
+        }
+        
+        Debug.Log(valuesAsString.ToString());
+    }
 }
 
 [Flags]
