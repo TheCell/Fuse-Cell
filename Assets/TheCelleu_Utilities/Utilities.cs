@@ -48,6 +48,36 @@ namespace Thecelleu
 
         // sound
         // maybe to do https://johnleonardfrench.com/articles/how-to-fade-audio-in-unity-i-tested-every-method-this-ones-the-best/
+
+        /// <summary>
+        /// returns true uf point is on the left side and false if point is on the right side of the plane
+        /// thanks to Harald Hanche-Olsen https://math.stackexchange.com/a/214194
+        /// </summary>
+        /// <param name="planeA">plane point A</param>
+        /// <param name="planeB">plane point B</param>
+        /// <param name="planeC">plane point C</param>
+        /// <param name="point">Point to compare</param>
+        /// <returns></returns>
+        public static bool GetSide(Vector3 planeA, Vector3 planeB, Vector3 planeC, Vector3 point)
+        {
+            bool result;
+            Vector3 BA = planeB - planeA;
+            Vector3 CA = planeC - planeA;
+            Vector3 PA = point - planeA;
+
+            float determinant3x3 = BA.x * CA.y * PA.z + BA.y * CA.z * PA.x + BA.z * CA.x * PA.y
+                - BA.z * CA.y * PA.x - BA.y * CA.x * PA.z - BA.x * CA.z * PA.y;
+            if (determinant3x3 > 0f)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+
+            return result;
+        }
     }
 
     /// <summary>

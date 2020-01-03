@@ -18,6 +18,7 @@ public class UtilityExamples : MonoBehaviour
 
         BitSettingExample();
         ShowDifferentEnums();
+        CheckPointSide();
     }
 
     private void Update()
@@ -82,6 +83,16 @@ public class UtilityExamples : MonoBehaviour
         }
         
         Debug.Log(valuesAsString.ToString());
+    }
+
+    private void CheckPointSide()
+    {
+        Vector3 planePointA = new Vector3(1, 0, 0);
+        Vector3 planePointB = new Vector3(0, 1, 0);
+        Vector3 planePointC = new Vector3(0, 0, 1);
+
+        Debug.Log("Point  2  2  2 is on the right side of the plane: " + Thecelleu.Utilities.GetSide(planePointA, planePointB, planePointC, new Vector3(2, 2, 2)));
+        Debug.Log("Point -2 -2 -2 is on the right side of the plane: " + Thecelleu.Utilities.GetSide(planePointA, planePointB, planePointC, new Vector3(-2, -2, -2)));
     }
 }
 
