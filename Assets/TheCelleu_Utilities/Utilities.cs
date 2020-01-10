@@ -46,6 +46,35 @@ namespace Thecelleu
             return (T)enumvaluesAsArray.GetValue(randomGen.Next(enumvaluesAsArray.Length));
         }
 
+        /// <summary>
+        /// Creates a List from an array
+        /// </summary>
+        /// <typeparam name="T">Object type of the Array</typeparam>
+        /// <param name="aSource">Array you want a list of</param>
+        /// <returns></returns>
+        public static List<T> CreateList<T>(T[] aSource)
+        {
+            if (aSource == null || aSource.Length == 0)
+                return null;
+            return new List<T>(aSource);
+        }
+
+        /// <summary>
+        /// Copies a list, if the list is not empty it adds the elements to the end of the list.
+        /// </summary>
+        /// <typeparam name="T">List type</typeparam>
+        /// <param name="aDest">list to add to</param>
+        /// <param name="aSource">list to copy from</param>
+        /// <param name="aIndex">Element of the list to copy starting from 0</param>
+        public static void Copy<T>(ref List<T> aDest, List<T> aSource, int aIndex)
+        {
+            if (aSource == null)
+                return;
+            if (aDest == null)
+                aDest = new List<T>();
+            aDest.Add(aSource[aIndex]);
+        }
+
         // sound
         // maybe to do https://johnleonardfrench.com/articles/how-to-fade-audio-in-unity-i-tested-every-method-this-ones-the-best/
 

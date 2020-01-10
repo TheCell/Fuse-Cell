@@ -19,6 +19,7 @@ public class UtilityExamples : MonoBehaviour
         BitSettingExample();
         ShowDifferentEnums();
         CheckPointSide();
+        CreateListFromArrayAndCopyIndices();
     }
 
     private void Update()
@@ -57,6 +58,7 @@ public class UtilityExamples : MonoBehaviour
 
     private void BitSettingExample()
     {
+        Debug.Log("BitSettingExample");
         BitSettingExampleNames names = BitSettingExampleNames.Susan | BitSettingExampleNames.Bob;
 
         bool susanIsIncluded = Thecelleu.FlagsHelper.IsSet(names, BitSettingExampleNames.Susan);
@@ -74,6 +76,7 @@ public class UtilityExamples : MonoBehaviour
 
     private void ShowDifferentEnums()
     {
+        Debug.Log("ShowDifferentEnums");
         string valuesAsString = "";
 
         for (int i = 0; i < 5; i++)
@@ -87,12 +90,26 @@ public class UtilityExamples : MonoBehaviour
 
     private void CheckPointSide()
     {
+        Debug.Log("CheckPointSide");
         Vector3 planePointA = new Vector3(1, 0, 0);
         Vector3 planePointB = new Vector3(0, 1, 0);
         Vector3 planePointC = new Vector3(0, 0, 1);
 
         Debug.Log("Point  2  2  2 is on the right side of the plane: " + Thecelleu.Utilities.GetSide(planePointA, planePointB, planePointC, new Vector3(2, 2, 2)));
         Debug.Log("Point -2 -2 -2 is on the right side of the plane: " + Thecelleu.Utilities.GetSide(planePointA, planePointB, planePointC, new Vector3(-2, -2, -2)));
+    }
+
+    private void CreateListFromArrayAndCopyIndices()
+    {
+        Debug.Log("CreateListFromArrayAndCopyIndices");
+        int[] integers = new int[] { 4, 12, 42 };
+        List<int> integersAsList = Thecelleu.Utilities.CreateList<int>(integers);
+        Debug.Log(integersAsList[0] + " " + integersAsList[1] + " " + integersAsList[2]);
+
+        List<int> integersToCopyElementsFrom = new List<int> { 101, 102, 103 };
+        Debug.Log(integersToCopyElementsFrom.Count + " " + integersToCopyElementsFrom[2]);
+        Thecelleu.Utilities.Copy<int>(ref integersAsList, integersToCopyElementsFrom, 2);
+        Debug.Log(integersAsList[0] + " " + integersAsList[1] + " " + integersAsList[2] + " " + integersAsList[3]);
     }
 }
 
