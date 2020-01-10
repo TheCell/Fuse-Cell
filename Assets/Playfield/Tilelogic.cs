@@ -5,25 +5,19 @@ using UnityEngine;
 
 public class Tilelogic : MonoBehaviour
 {
-    [Header("Open, Top, Right, Bottom, Left, Close")]
-    [SerializeField] private Sprite[] sprites;
+	[Header("Player Colors")]
+	public Color[] playerColors;
+    [Header("Top, Right, Bottom, Left, Close, Logo")]
+    [SerializeField] private SpriteRenderer[] sprites;
 	private ClosedTiles tileState = ClosedTiles.Open;
-    private SpriteRenderer spriteRenderer;
-
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void Update()
-    {
-        
-    }
-
-	public void TileClicked()
+	private int player;
+	
+	public void TileClicked(int player, Vector2 relativeClickPos)
 	{
-		Debug.Log("I was clicked");
-        tileState = Thecelleu.Utilities.RandomEnumValue<ClosedTiles>();
+		this.player = player;
+		//tileState = Thecelleu.Utilities.RandomEnumValue<ClosedTiles>();
+		ClosedTiles sideToSet = GetClickDirection(relativeClickPos);
+		TileSet(sideToSet);
         UpdateDisplayedTexture();
     }
 	
@@ -34,50 +28,111 @@ public class Tilelogic : MonoBehaviour
 
 	private void UpdateDisplayedTexture()
 	{
-        if (spriteRenderer != null)
-        {
-            switch(tileState)
-            {
-                case ClosedTiles.Open:
-                    if (sprites.Length > 0)
-                    {
-                        spriteRenderer.sprite = sprites[0];
-                    }
-                    break;
-                case ClosedTiles.Top:
-                    if (sprites.Length > 1)
-                    {
-                        spriteRenderer.sprite = sprites[1];
-                    }
-                    break;
-                case ClosedTiles.Right:
-                    if (sprites.Length > 2)
-                    {
-                        spriteRenderer.sprite = sprites[2];
-                    }
-                    break;
-                case ClosedTiles.Bottom:
-                    if (sprites.Length > 3)
-                    {
-                        spriteRenderer.sprite = sprites[3];
-                    }
-                    break;
-                case ClosedTiles.Left:
-                    if (sprites.Length > 4)
-                    {
-                        spriteRenderer.sprite = sprites[4];
-                    }
-                    break;
-                case ClosedTiles.Close:
-                    if (sprites.Length > 5)
-                    {
-                        spriteRenderer.sprite = sprites[5];
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
+		if (sprites == null)
+		{
+			Debug.LogError("no sprites Array");
+			return;
+		}
+
+		Debug.Log(tileState);
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Open))
+		{
+			for (int i = 0; i < sprites.Length; i++)
+			{
+				sprites[i].enabled = false;
+			}
+		}
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Top))
+		{
+			if (sprites.Length > 0)
+			{
+				sprites[0].color = GetPlayerColor();
+				sprites[0].enabled = true;
+			}
+		}
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Right))
+		{
+			if (sprites.Length > 1)
+			{
+				sprites[1].color = GetPlayerColor();
+				sprites[1].enabled = true;
+			}
+		}
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Bottom))
+		{
+			if (sprites.Length > 2)
+			{
+				sprites[2].color = GetPlayerColor();
+				sprites[2].enabled = true;
+			}
+		}
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Left))
+		{
+			if (sprites.Length > 3)
+			{
+				sprites[3].color = GetPlayerColor();
+				sprites[3].enabled = true;
+			}
+		}
+		if (tileState == ClosedTiles.Close)
+		{
+			if (sprites.Length > 4)
+			{
+				// closed Walls
+				sprites[4].color = GetPlayerColor();
+				sprites[4].enabled = true;
+			}
+			if (sprites.Length > 5)
+			{
+				// logo
+				sprites[5].color = GetPlayerColor();
+				sprites[5].enabled = true;
+			}
+		}
+	}
+
+	private Color GetPlayerColor()
+	{
+		Color playerColor = new Color(UnityEngine.Random.Range(0f, 1), UnityEngine.Random.Range(0f, 1), UnityEngine.Random.Range(0f, 1));
+		if (player < playerColors.Length)
+		{
+			playerColor = playerColors[player];
+		}
+
+		return playerColor;
+	}
+
+	private ClosedTiles GetClickDirection(Vector2 inputVector)
+	{
+		float signedAngle = Vector2.SignedAngle(new Vector2(1.0f, 0.0f), inputVector);
+		ClosedTiles tilePart = ClosedTiles.Open;
+
+		// cross straight
+		// top
+		if (signedAngle >= 45f && signedAngle < 135f)
+		{
+			tilePart = ClosedTiles.Top;
+		}
+
+		// left
+		if (signedAngle > 135f || signedAngle <= -135f)
+		{
+			tilePart = ClosedTiles.Left;
+		}
+
+		// bottom
+		if (signedAngle <= -45f && signedAngle > -135f)
+		{
+			tilePart = ClosedTiles.Bottom;
+		}
+
+		// right
+		if (signedAngle >= -45f && signedAngle < 45f)
+		{
+			tilePart = ClosedTiles.Right;
+		}
+
+		return tilePart;
 	}
 
     private void DebugEnum()

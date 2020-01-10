@@ -21,12 +21,13 @@ public class Interactionlogic : MonoBehaviour
 			RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 			if (hit.collider != null)
 			{
-				Debug.Log("not null" + hit.collider.gameObject.name);
+				Vector3 hitPoint = hit.collider.transform.InverseTransformPoint(hit.point);
+				Debug.Log("tile clicked at: " + hitPoint.x + " " + hitPoint.y + " " + hitPoint.z);
 				Tilelogic tile = hit.collider.gameObject.GetComponent<Tilelogic>();
 				if (tile != null)
 				{
-					Debug.Log("tile clicked");
-					tile.TileClicked();
+					int playernr = (int)Mathf.Round(Random.Range(0, 1.1f));
+					tile.TileClicked(playernr, new Vector2(hitPoint.x, hitPoint.y));
 				}
 			}
 		}
