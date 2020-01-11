@@ -6,7 +6,7 @@ using UnityEngine;
 public class Tilelogic : MonoBehaviour
 {
 	[Header("Player Colors")]
-	public Color[] playerColors;
+	public static Color[] playerColors;
     [Header("Top, Right, Bottom, Left, Close, Logo")]
     [SerializeField] private SpriteRenderer[] sprites;
 	private ClosedTiles tileState = ClosedTiles.Open;
@@ -19,8 +19,35 @@ public class Tilelogic : MonoBehaviour
 		ClosedTiles sideToSet = GetClickDirection(relativeClickPos);
 		TileSet(sideToSet);
         UpdateDisplayedTexture();
+
+		UpdatedNeighbour(sideToSet);
     }
-	
+
+	public void TileUpdateFromNeighbour(int player, ClosedTiles externalTileDirection)
+	{
+		// externalTileDirection means the direction of the neighbour. Opposite of this tile side
+		ClosedTiles sideToSet = ClosedTiles.Open;
+		switch(externalTileDirection)
+		{
+			case ClosedTiles.Top:
+				sideToSet = ClosedTiles.Bottom;
+				break;
+			case ClosedTiles.Right:
+				sideToSet = ClosedTiles.Left;
+				break;
+			case ClosedTiles.Bottom:
+				sideToSet = ClosedTiles.Top;
+				break;
+			case ClosedTiles.Left:
+				sideToSet = ClosedTiles.Right;
+				break;
+		}
+
+		this.player = player;
+		TileSet(sideToSet);
+		UpdateDisplayedTexture();
+	}
+
 	private void TileSet(ClosedTiles whichSideWasSet)
 	{
 		Thecelleu.FlagsHelper.Set(ref tileState, whichSideWasSet);
@@ -33,8 +60,7 @@ public class Tilelogic : MonoBehaviour
 			Debug.LogError("no sprites Array");
 			return;
 		}
-
-		Debug.Log(tileState);
+		
 		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Open))
 		{
 			for (int i = 0; i < sprites.Length; i++)
@@ -133,6 +159,38 @@ public class Tilelogic : MonoBehaviour
 		}
 
 		return tilePart;
+	}
+
+	private void UpdatedNeighbour(ClosedTiles activeSideOfCurrentTile)
+	{
+		Vector2 directionToCheck = Vector2.zero;
+		switch(activeSideOfCurrentTile)
+		{
+			case ClosedTiles.Top:
+				directionToCheck = Vector2.up;
+				break;
+			case ClosedTiles.Right:
+				directionToCheck = Vector2.right;
+				break;
+			case ClosedTiles.Bottom:
+				directionToCheck = Vector2.down;
+				break;
+			case ClosedTiles.Left:
+				directionToCheck = Vector2.left;
+				break;
+		}
+
+		int currentLayer = this.gameObject.layer; // move current object to ignore raycasts to avoid hitting itself
+		this.gameObject.layer = 2;
+		RaycastHit2D raycasthit = Physics2D.BoxCast(this.transform.position, new Vector2(0.8f, 0.8f), 0f, directionToCheck, 0.5f);
+		Thecelleu.DebugExt.DrawBoxCast2D(this.transform.position, new Vector2(0.8f, 0.8f), 0f, directionToCheck, 0.5f, Color.white);
+		this.gameObject.layer = currentLayer;
+
+		if (raycasthit.collider != null)
+		{
+			Tilelogic otherTile = raycasthit.collider.GetComponent<Tilelogic>();
+			otherTile.TileUpdateFromNeighbour(this.player, activeSideOfCurrentTile);
+		}
 	}
 
     private void DebugEnum()

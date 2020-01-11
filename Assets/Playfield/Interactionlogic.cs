@@ -22,7 +22,7 @@ public class Interactionlogic : MonoBehaviour
 			if (hit.collider != null)
 			{
 				Vector3 hitPoint = hit.collider.transform.InverseTransformPoint(hit.point);
-				Debug.Log("tile clicked at: " + hitPoint.x + " " + hitPoint.y + " " + hitPoint.z);
+				//Debug.Log("tile clicked at: " + hitPoint.x + " " + hitPoint.y + " " + hitPoint.z);
 				Tilelogic tile = hit.collider.gameObject.GetComponent<Tilelogic>();
 				if (tile != null)
 				{
