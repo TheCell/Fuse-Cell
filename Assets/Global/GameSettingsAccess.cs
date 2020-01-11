@@ -24,4 +24,9 @@ public class GameSettingsAccess : MonoBehaviour
 
 		return playerColor;
 	}
+
+	public int GetAmountOfPlayers()
+	{
+		return gameSettings.amountOfPlayers;
+	}
 }

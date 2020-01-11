@@ -10,21 +10,35 @@ public class Tilelogic : MonoBehaviour
     [Header("Top, Right, Bottom, Left, Close, Logo")]
     [SerializeField] private SpriteRenderer[] sprites;
 	private ClosedTiles tileState = ClosedTiles.Open;
+	private ClosedTiles previousState = ClosedTiles.Open;
 	private int player;
 	private GameSettingsAccess gameSettingsAccess;
 	
-	public void TileClicked(int player, Vector2 relativeClickPos)
+	public void TileClicked(int player, Vector2 relativeClickPos, out bool tileClosed)
 	{
+		bool tileFinished = false;
 		this.player = player;
 		//tileState = Thecelleu.Utilities.RandomEnumValue<ClosedTiles>();
 		ClosedTiles sideToSet = GetClickDirection(relativeClickPos);
 		TileSet(sideToSet);
+		if (tileState == ClosedTiles.Close)
+		{
+			Debug.Log("this tile closed");
+			tileFinished = true;
+		}
         UpdateDisplayedTexture();
 
-		UpdatedNeighbour(sideToSet);
-    }
+		bool neighbourClosed = UpdatedNeighbour(sideToSet);
+		if (neighbourClosed)
+		{
+			Debug.Log("neighbour tile closed");
+			tileFinished = true;
+		}
 
-	public void TileUpdateFromNeighbour(int player, ClosedTiles externalTileDirection)
+		tileClosed = tileFinished;
+	}
+
+	public bool TileUpdateFromNeighbour(int player, ClosedTiles externalTileDirection)
 	{
 		// externalTileDirection means the direction of the neighbour. Opposite of this tile side
 		ClosedTiles sideToSet = ClosedTiles.Open;
@@ -47,6 +61,8 @@ public class Tilelogic : MonoBehaviour
 		this.player = player;
 		TileSet(sideToSet);
 		UpdateDisplayedTexture();
+
+		return tileState == ClosedTiles.Close ? true : false;
 	}
 
 	private void Start()
@@ -67,14 +83,16 @@ public class Tilelogic : MonoBehaviour
 			return;
 		}
 		
-		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Open))
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Open)
+			&& !Thecelleu.FlagsHelper.IsSet<ClosedTiles>(previousState, ClosedTiles.Open))
 		{
 			for (int i = 0; i < sprites.Length; i++)
 			{
 				sprites[i].enabled = false;
 			}
 		}
-		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Top))
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Top)
+			&& !Thecelleu.FlagsHelper.IsSet<ClosedTiles>(previousState, ClosedTiles.Top))
 		{
 			if (sprites.Length > 0)
 			{
@@ -82,7 +100,8 @@ public class Tilelogic : MonoBehaviour
 				sprites[0].enabled = true;
 			}
 		}
-		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Right))
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Right)
+			&& !Thecelleu.FlagsHelper.IsSet<ClosedTiles>(previousState, ClosedTiles.Right))
 		{
 			if (sprites.Length > 1)
 			{
@@ -90,7 +109,8 @@ public class Tilelogic : MonoBehaviour
 				sprites[1].enabled = true;
 			}
 		}
-		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Bottom))
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Bottom)
+			&& !Thecelleu.FlagsHelper.IsSet<ClosedTiles>(previousState, ClosedTiles.Bottom))
 		{
 			if (sprites.Length > 2)
 			{
@@ -98,7 +118,8 @@ public class Tilelogic : MonoBehaviour
 				sprites[2].enabled = true;
 			}
 		}
-		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Left))
+		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Left)
+			&& !Thecelleu.FlagsHelper.IsSet<ClosedTiles>(previousState, ClosedTiles.Left))
 		{
 			if (sprites.Length > 3)
 			{
@@ -121,6 +142,8 @@ public class Tilelogic : MonoBehaviour
 				sprites[5].enabled = true;
 			}
 		}
+
+		previousState = tileState;
 	}
 
 	private Color GetPlayerColor()
@@ -164,9 +187,11 @@ public class Tilelogic : MonoBehaviour
 		return tilePart;
 	}
 
-	private void UpdatedNeighbour(ClosedTiles activeSideOfCurrentTile)
+	private bool UpdatedNeighbour(ClosedTiles activeSideOfCurrentTile)
 	{
+		bool neighbourClosed = false;
 		Vector2 directionToCheck = Vector2.zero;
+
 		switch(activeSideOfCurrentTile)
 		{
 			case ClosedTiles.Top:
@@ -192,8 +217,10 @@ public class Tilelogic : MonoBehaviour
 		if (raycasthit.collider != null)
 		{
 			Tilelogic otherTile = raycasthit.collider.GetComponent<Tilelogic>();
-			otherTile.TileUpdateFromNeighbour(this.player, activeSideOfCurrentTile);
+			neighbourClosed = otherTile.TileUpdateFromNeighbour(this.player, activeSideOfCurrentTile);
 		}
+
+		return neighbourClosed;
 	}
 
     private void DebugEnum()

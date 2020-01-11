@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Interactionlogic : MonoBehaviour
 {
-	private int playernr = 0;
+	private GameSettingsAccess gameSettingsAccess;
+	private int currentPlayer = 0;
 
 	// Start is called before the first frame update
-	void Start()
+	private void Start()
     {
-        
-    }
+		gameSettingsAccess = Camera.main.GetComponent<GameSettingsAccess>();
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	private void Update()
     {
 		if (Input.GetMouseButtonUp(0))
 		{
@@ -29,18 +30,25 @@ public class Interactionlogic : MonoBehaviour
 				if (tile != null)
 				{
 					//int playernr = (int)Mathf.Round(Random.Range(0, 1.1f));
-					
-					tile.TileClicked(playernr, new Vector2(hitPoint.x, hitPoint.y));
-					if (playernr == 0)
+					bool aTileClosed = false;
+					tile.TileClicked(currentPlayer, new Vector2(hitPoint.x, hitPoint.y), out aTileClosed);
+
+					if (!aTileClosed)
 					{
-						playernr = 1;
-					}
-					else if (playernr == 1)
-					{
-						playernr = 0;
+						Debug.Log("updateActivePlayer");
+						UpdateActivePlayer();
 					}
 				}
 			}
+		}
+	}
+
+	private void UpdateActivePlayer()
+	{
+		currentPlayer++;
+		if (currentPlayer >= gameSettingsAccess.GetAmountOfPlayers())
+		{
+			currentPlayer = 0;
 		}
 	}
 }
