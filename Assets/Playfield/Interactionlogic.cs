@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Interactionlogic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+	private int playernr = 0;
+
+	// Start is called before the first frame update
+	void Start()
     {
         
     }
@@ -26,8 +28,17 @@ public class Interactionlogic : MonoBehaviour
 				Tilelogic tile = hit.collider.gameObject.GetComponent<Tilelogic>();
 				if (tile != null)
 				{
-					int playernr = (int)Mathf.Round(Random.Range(0, 1.1f));
+					//int playernr = (int)Mathf.Round(Random.Range(0, 1.1f));
+					
 					tile.TileClicked(playernr, new Vector2(hitPoint.x, hitPoint.y));
+					if (playernr == 0)
+					{
+						playernr = 1;
+					}
+					else if (playernr == 1)
+					{
+						playernr = 0;
+					}
 				}
 			}
 		}

@@ -313,7 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1530653047}
   - {fileID: 255224342}
@@ -722,7 +721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 646449473}
   - {fileID: 349406684}
@@ -969,7 +967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1495681583}
   - {fileID: 1973507352}
@@ -1135,7 +1132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1998605544}
   - {fileID: 1182673735}
@@ -1544,7 +1540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 261439475}
   - {fileID: 1638947089}
@@ -2115,7 +2110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 803744588}
   - {fileID: 1213716046}
@@ -2362,7 +2356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1387533193}
   - {fileID: 1621825640}
@@ -2528,7 +2521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 598693689}
   - {fileID: 1107878788}
@@ -2694,7 +2686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1196327268}
   - {fileID: 1697402403}
@@ -3184,7 +3175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1264571794}
   - {fileID: 1993635220}
@@ -3836,7 +3826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 633611392}
   - {fileID: 1750204056}
@@ -4083,7 +4072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1729653745}
   - {fileID: 389303448}
@@ -4411,7 +4399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 783493502}
   - {fileID: 783137094}
@@ -5387,7 +5374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1850787020}
   - {fileID: 249317522}
@@ -6039,7 +6025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 959741524}
   - {fileID: 1886846341}
@@ -6610,7 +6595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1627470695}
   - {fileID: 146165168}
@@ -7262,7 +7246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 817336858}
   - {fileID: 2018419059}
@@ -9210,7 +9193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 282404086}
   - {fileID: 2096728216}
@@ -9457,7 +9439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1740928984}
   - {fileID: 158884170}
@@ -10352,7 +10333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1549171552}
   - {fileID: 766131327}
@@ -10437,7 +10417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 262454314}
   - {fileID: 1251561329}
@@ -11332,7 +11311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1422633482}
   - {fileID: 346038772}
@@ -11498,7 +11476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 582851138}
   - {fileID: 907851952}
@@ -12150,7 +12127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 552374077}
   - {fileID: 465171001}
@@ -12217,6 +12193,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12301,6 +12278,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8e3615c2d238e43abc5bebadfead49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: 0c16603f5ea76924491a386898bab7d0, type: 2}
 --- !u!1 &523939480
 GameObject:
   m_ObjectHideFlags: 0
@@ -12574,7 +12564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1596461255}
   - {fileID: 716901430}
@@ -13226,7 +13215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1489216974}
   - {fileID: 1432673637}
@@ -14526,7 +14514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 964888080}
   - {fileID: 892114901}
@@ -15340,7 +15327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1121217030}
   - {fileID: 925207898}
@@ -16073,7 +16059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1075564521}
   - {fileID: 982554571}
@@ -16401,7 +16386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1011889462}
   - {fileID: 734172313}
@@ -16810,7 +16794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1630905083}
   - {fileID: 395215739}
@@ -16895,7 +16878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 174584135}
   - {fileID: 981174345}
@@ -17466,7 +17448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1832250767}
   - {fileID: 1719616892}
@@ -17713,7 +17694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 684820799}
   - {fileID: 1144905431}
@@ -18446,7 +18426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 118100340}
   - {fileID: 1828094296}
@@ -19017,7 +18996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 867451612}
   - {fileID: 391105278}
@@ -19426,7 +19404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1421292594}
   - {fileID: 1839248833}
@@ -19835,7 +19812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 425653499}
   - {fileID: 493263617}
@@ -20001,7 +19977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 2111737915}
   - {fileID: 1740563158}
@@ -20086,7 +20061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 670614884}
   - {fileID: 287233985}
@@ -20738,7 +20712,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 912463382}
   - {fileID: 1013224839}
@@ -20985,7 +20958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 124119954}
   - {fileID: 907671087}
@@ -23176,7 +23148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1311156990}
   - {fileID: 885805163}
@@ -23666,7 +23637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 506017560}
   - {fileID: 1013743865}
@@ -24885,7 +24855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1690080114}
   - {fileID: 579153565}
@@ -25213,7 +25182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1942171575}
   - {fileID: 560733056}
@@ -25379,7 +25347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1613439846}
   - {fileID: 66970531}
@@ -25788,7 +25755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 2010312363}
   - {fileID: 2034758074}
@@ -26764,7 +26730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 2070431319}
   - {fileID: 1765569033}
@@ -28064,7 +28029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1817411246}
   - {fileID: 1050458507}
@@ -28149,7 +28113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1796747922}
   - {fileID: 1835202155}
@@ -28558,7 +28521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1610751752}
   - {fileID: 2041456294}
@@ -28643,7 +28605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 572470959}
   - {fileID: 1914067742}
@@ -29538,7 +29499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 913390478}
   - {fileID: 2144590862}
@@ -29623,7 +29583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1823498954}
   - {fileID: 1841550075}
@@ -30356,7 +30315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1358966330}
   - {fileID: 1887044276}
@@ -30927,7 +30885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1076038549}
   - {fileID: 473216223}
@@ -32713,7 +32670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1748566100}
   - {fileID: 1044562419}
@@ -32798,7 +32754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 777205117}
   - {fileID: 2138588215}
@@ -33288,7 +33243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 634607654}
   - {fileID: 648939866}
@@ -33373,7 +33327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 589000614}
   - {fileID: 1443638938}
@@ -34754,7 +34707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 911517490}
   - {fileID: 1716096333}
@@ -35001,7 +34953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1852975370}
   - {fileID: 255126800}
@@ -35329,7 +35280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1094972375}
   - {fileID: 211062201}
@@ -35414,7 +35364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1549718329}
   - {fileID: 317469337}
@@ -36390,7 +36339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1336117309}
   - {fileID: 584375759}
@@ -37447,7 +37395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 295501045}
   - {fileID: 1863480730}
@@ -39071,7 +39018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1266035500}
   - {fileID: 573412725}
@@ -39318,7 +39264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 990215703}
   - {fileID: 1859201609}
@@ -41185,7 +41130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 844332756}
   - {fileID: 1539555717}
@@ -41756,7 +41700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 71308500}
   - {fileID: 1603397704}
@@ -42408,7 +42351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 255955176}
   - {fileID: 1429458215}
@@ -43303,7 +43245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 365880845}
   - {fileID: 1208375597}
@@ -43631,7 +43572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 535220453}
   - {fileID: 554863521}
@@ -44769,7 +44709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 567677197}
   - {fileID: 901985132}
@@ -45664,7 +45603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 131527211}
   - {fileID: 2046913852}
@@ -46073,7 +46011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 317677547}
   - {fileID: 507231840}
@@ -46968,7 +46905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 2089677710}
   - {fileID: 274804179}
@@ -48025,7 +47961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 716270892}
   - {fileID: 1086580703}
@@ -50540,7 +50475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1658770694}
   - {fileID: 1505796800}
@@ -51030,7 +50964,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4396ee1e7297c8946875b32cf80e5162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors: []
   sprites:
   - {fileID: 1126158790}
   - {fileID: 2050537596}

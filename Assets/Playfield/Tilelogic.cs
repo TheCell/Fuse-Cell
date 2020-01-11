@@ -11,6 +11,7 @@ public class Tilelogic : MonoBehaviour
     [SerializeField] private SpriteRenderer[] sprites;
 	private ClosedTiles tileState = ClosedTiles.Open;
 	private int player;
+	private GameSettingsAccess gameSettingsAccess;
 	
 	public void TileClicked(int player, Vector2 relativeClickPos)
 	{
@@ -46,6 +47,11 @@ public class Tilelogic : MonoBehaviour
 		this.player = player;
 		TileSet(sideToSet);
 		UpdateDisplayedTexture();
+	}
+
+	private void Start()
+	{
+		gameSettingsAccess = Camera.main.GetComponent<GameSettingsAccess>();
 	}
 
 	private void TileSet(ClosedTiles whichSideWasSet)
@@ -119,13 +125,10 @@ public class Tilelogic : MonoBehaviour
 
 	private Color GetPlayerColor()
 	{
-		Color playerColor = new Color(UnityEngine.Random.Range(0f, 1), UnityEngine.Random.Range(0f, 1), UnityEngine.Random.Range(0f, 1));
-		if (player < playerColors.Length)
-		{
-			playerColor = playerColors[player];
-		}
-
-		return playerColor;
+		//PlayerSettings playerSettings = PlayerSettings.Instance;
+		//Debug.Log(playerSettings.GetPlayerColors(this.player));
+		//return playerSettings.GetPlayerColors(this.player);
+		return gameSettingsAccess.GetPlayerColor(this.player);
 	}
 
 	private ClosedTiles GetClickDirection(Vector2 inputVector)
