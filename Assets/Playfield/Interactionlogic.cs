@@ -6,11 +6,13 @@ public class Interactionlogic : MonoBehaviour
 {
 	private GameSettingsAccess gameSettingsAccess;
 	private int currentPlayer = 0;
+	private WinTracker wintracker;
 
 	// Start is called before the first frame update
 	private void Start()
     {
 		gameSettingsAccess = Camera.main.GetComponent<GameSettingsAccess>();
+		wintracker = Camera.main.GetComponent<WinTracker>();
 	}
 
 	// Update is called once per frame
@@ -37,6 +39,10 @@ public class Interactionlogic : MonoBehaviour
 					{
 						Debug.Log("updateActivePlayer");
 						UpdateActivePlayer();
+					}
+					else
+					{
+						wintracker.CheckWinCondition();
 					}
 				}
 			}

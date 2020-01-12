@@ -65,6 +65,21 @@ public class Tilelogic : MonoBehaviour
 		return tileState == ClosedTiles.Close ? true : false;
 	}
 
+	/// <summary>
+	/// returns the tile owner. Returns -1 if the tile is not closed yet.
+	/// </summary>
+	/// <returns>playernr owning the field</returns>
+	public int GetPlayerOwner()
+	{
+		int fieldOwner = -1;
+		if (tileState == ClosedTiles.Close)
+		{
+			fieldOwner = this.player;
+		}
+
+		return fieldOwner;
+	}
+
 	private void Start()
 	{
 		gameSettingsAccess = Camera.main.GetComponent<GameSettingsAccess>();
