@@ -80,6 +80,54 @@ public class Tilelogic : MonoBehaviour
 		return fieldOwner;
 	}
 
+	public void CheckForNeighboursAndSetupWalls()
+	{
+		RaycastHit2D hitTop = GetNeighbourForDirection(Vector2.up);
+		RaycastHit2D hitRight = GetNeighbourForDirection(Vector2.right);
+		RaycastHit2D hitBottom = GetNeighbourForDirection(Vector2.down);
+		RaycastHit2D hitLeft = GetNeighbourForDirection(Vector2.left);
+
+		if (hitTop.collider == null)
+		{
+			TileSet(ClosedTiles.Top);
+		}
+
+		if (hitRight.collider == null)
+		{
+			TileSet(ClosedTiles.Right);
+		}
+
+		if (hitBottom.collider == null)
+		{
+			TileSet(ClosedTiles.Bottom);
+		}
+
+		if (hitLeft.collider == null)
+		{
+			TileSet(ClosedTiles.Left);
+		}
+
+		UpdateDisplayedTexture(true);
+	}
+
+	public void ResetTile()
+	{
+		tileState = ClosedTiles.Open;
+		previousState = ClosedTiles.Open;
+		player = 0;
+
+		if (sprites == null)
+		{
+			Debug.LogError("no sprites Array");
+			return;
+		}
+		for (int i = 0; i < sprites.Length; i++)
+		{
+			sprites[i].enabled = false;
+		}
+		UpdateDisplayedTexture(true);
+	}
+
 	private void Start()
 	{
 		gameSettingsAccess = Camera.main.GetComponent<GameSettingsAccess>();
@@ -90,14 +138,20 @@ public class Tilelogic : MonoBehaviour
 		Thecelleu.FlagsHelper.Set(ref tileState, whichSideWasSet);
 	}
 
-	private void UpdateDisplayedTexture()
+	private void UpdateDisplayedTexture(bool isNeutral = false)
 	{
 		if (sprites == null)
 		{
 			Debug.LogError("no sprites Array");
 			return;
 		}
-		
+
+		Color playerColor = Color.white;
+		if (!isNeutral)
+		{
+			 playerColor = GetPlayerColor();
+		}
+
 		if (Thecelleu.FlagsHelper.IsSet<ClosedTiles>(tileState, ClosedTiles.Open)
 			&& !Thecelleu.FlagsHelper.IsSet<ClosedTiles>(previousState, ClosedTiles.Open))
 		{
@@ -111,7 +165,7 @@ public class Tilelogic : MonoBehaviour
 		{
 			if (sprites.Length > 0)
 			{
-				sprites[0].color = GetPlayerColor();
+				sprites[0].color = playerColor;
 				sprites[0].enabled = true;
 			}
 		}
@@ -120,7 +174,7 @@ public class Tilelogic : MonoBehaviour
 		{
 			if (sprites.Length > 1)
 			{
-				sprites[1].color = GetPlayerColor();
+				sprites[1].color = playerColor;
 				sprites[1].enabled = true;
 			}
 		}
@@ -129,7 +183,7 @@ public class Tilelogic : MonoBehaviour
 		{
 			if (sprites.Length > 2)
 			{
-				sprites[2].color = GetPlayerColor();
+				sprites[2].color = playerColor;
 				sprites[2].enabled = true;
 			}
 		}
@@ -138,7 +192,7 @@ public class Tilelogic : MonoBehaviour
 		{
 			if (sprites.Length > 3)
 			{
-				sprites[3].color = GetPlayerColor();
+				sprites[3].color = playerColor;
 				sprites[3].enabled = true;
 			}
 		}
@@ -147,13 +201,13 @@ public class Tilelogic : MonoBehaviour
 			if (sprites.Length > 4)
 			{
 				// closed Walls
-				sprites[4].color = GetPlayerColor();
+				sprites[4].color = playerColor;
 				sprites[4].enabled = true;
 			}
 			if (sprites.Length > 5)
 			{
 				// logo
-				sprites[5].color = GetPlayerColor();
+				sprites[5].color = playerColor;
 				sprites[5].enabled = true;
 			}
 		}
@@ -223,19 +277,25 @@ public class Tilelogic : MonoBehaviour
 				break;
 		}
 
-		int currentLayer = this.gameObject.layer; // move current object to ignore raycasts to avoid hitting itself
-		this.gameObject.layer = 2;
-		RaycastHit2D raycasthit = Physics2D.BoxCast(this.transform.position, new Vector2(0.8f, 0.8f), 0f, directionToCheck, 0.5f);
+		RaycastHit2D neighbourHit = GetNeighbourForDirection(directionToCheck);
 		Thecelleu.DebugExt.DrawBoxCast2D(this.transform.position, new Vector2(0.8f, 0.8f), 0f, directionToCheck, 0.5f, Color.white);
-		this.gameObject.layer = currentLayer;
 
-		if (raycasthit.collider != null)
+		if (neighbourHit.collider != null)
 		{
-			Tilelogic otherTile = raycasthit.collider.GetComponent<Tilelogic>();
+			Tilelogic otherTile = neighbourHit.collider.GetComponent<Tilelogic>();
 			neighbourClosed = otherTile.TileUpdateFromNeighbour(this.player, activeSideOfCurrentTile);
 		}
 
 		return neighbourClosed;
+	}
+
+	private RaycastHit2D GetNeighbourForDirection(Vector2 directionToCheck)
+	{
+		int currentLayer = this.gameObject.layer; // move current object to ignore raycasts to avoid hitting itself
+		this.gameObject.layer = 2;
+		RaycastHit2D raycasthit = Physics2D.BoxCast(this.transform.position, new Vector2(0.8f, 0.8f), 0f, directionToCheck, 0.5f); // magic numbers: 0.8 because I assume tiles are 1 unit in size and 0.5 I just want to make sure to hit the next withouth going too far
+		this.gameObject.layer = currentLayer;
+		return raycasthit;
 	}
 
     private void DebugEnum()
