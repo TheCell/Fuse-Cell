@@ -21,6 +21,9 @@ public class WinTracker : MonoBehaviour
     public void CheckWinCondition()
     {
         pointsPerPlayer = new int[playerCount];
+        bool allTilesHaveOwner = true;
+        int winningPlayer = -1;
+        int winningCount = -1;
 
         for (int i = 0; i < allTiles.Length; i++)
         {
@@ -29,11 +32,25 @@ public class WinTracker : MonoBehaviour
             {
                 pointsPerPlayer[playerWhoOwns]++;
             }
+            else
+            {
+                allTilesHaveOwner = false;
+            }
         }
 
         for (int i = 0; i < pointsPerPlayer.Length; i++)
         {
+            if (pointsPerPlayer[i] > winningCount)
+            {
+                winningPlayer = i;
+                winningCount = pointsPerPlayer[i];
+            }
             Debug.Log("player number " + i + " has " + pointsPerPlayer[i] + " points");
+        }
+
+        if (allTilesHaveOwner)
+        {
+            Debug.Log(winningPlayer + " player won!");
         }
     }
 }
