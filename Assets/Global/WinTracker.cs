@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinTracker : MonoBehaviour
 {
-    GameSettingsAccess gameSettings;
-    int playerCount = 0;
-    int[] pointsPerPlayer;
-    Tilelogic[] allTiles;
+    private GameSettingsAccess gameSettings;
+    private int playerCount = 0;
+    private int[] pointsPerPlayer;
+    private Tilelogic[] allTiles;
 
     private void Start()
     {
@@ -51,6 +52,12 @@ public class WinTracker : MonoBehaviour
         if (allTilesHaveOwner)
         {
             Debug.Log(winningPlayer + " player won!");
+            RestartGame();
         }
+    }
+
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
