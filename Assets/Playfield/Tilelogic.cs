@@ -17,16 +17,19 @@ public class Tilelogic : MonoBehaviour
 	public void TileClicked(int player, Vector2 relativeClickPos, out bool tileClosed)
 	{
 		bool tileFinished = false;
-		this.player = player;
 		//tileState = Thecelleu.Utilities.RandomEnumValue<ClosedTiles>();
 		ClosedTiles sideToSet = GetClickDirection(relativeClickPos);
-		TileSet(sideToSet);
 		if (tileState == ClosedTiles.Close)
 		{
 			Debug.Log("this tile closed");
 			tileFinished = true;
 		}
-        UpdateDisplayedTexture();
+		else
+		{
+			this.player = player;
+			TileSet(sideToSet);
+		}
+		UpdateDisplayedTexture();
 
 		bool neighbourClosed = UpdatedNeighbour(sideToSet);
 		if (neighbourClosed)
@@ -58,8 +61,15 @@ public class Tilelogic : MonoBehaviour
 				break;
 		}
 
-		this.player = player;
-		TileSet(sideToSet);
+		if (tileState == ClosedTiles.Close)
+		{
+			Debug.Log("Tile already closed");
+		}
+		else
+		{
+			this.player = player;
+			TileSet(sideToSet);
+		}
 		UpdateDisplayedTexture();
 
 		return tileState == ClosedTiles.Close ? true : false;
@@ -131,6 +141,7 @@ public class Tilelogic : MonoBehaviour
 	private void Start()
 	{
 		gameSettingsAccess = Camera.main.GetComponent<GameSettingsAccess>();
+		UpdateDisplayedTexture(true);
 	}
 
 	private void TileSet(ClosedTiles whichSideWasSet)
@@ -213,6 +224,7 @@ public class Tilelogic : MonoBehaviour
 		}
 
 		previousState = tileState;
+		Debug.Log(tileState);
 	}
 
 	private Color GetPlayerColor()

@@ -25,4 +25,8 @@ public class UpdateBorders : MonoBehaviour
             allTiles[i].ResetTile();
         }
     }
+    private void Start()
+    {
+        UpdateWalls();
+    }
 }

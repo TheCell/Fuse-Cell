@@ -37,7 +37,7 @@ public class Interactionlogic : MonoBehaviour
 
 					if (!aTileClosed)
 					{
-						Debug.Log("updateActivePlayer");
+						//Debug.Log("updateActivePlayer");
 						UpdateActivePlayer();
 					}
 					else
