@@ -75,6 +75,18 @@ namespace Thecelleu
             aDest.Add(aSource[aIndex]);
         }
 
+        /// <summary>
+        /// Get a rotation in degree between two points
+        /// </summary>
+        /// <param name="normalizedDirectionBetweentPoints">normalized direction from one point to another</param>
+        /// <returns>Angle from one point to another in degree</returns>
+        public static float GetAngleFromVector(Vector2 normalizedDirectionBetweentPoints)
+        {
+            return Mathf.Atan2(
+                normalizedDirectionBetweentPoints.y,
+                normalizedDirectionBetweentPoints.x) * Mathf.Rad2Deg;
+        }
+
         // sound
         // maybe to do https://johnleonardfrench.com/articles/how-to-fade-audio-in-unity-i-tested-every-method-this-ones-the-best/
 

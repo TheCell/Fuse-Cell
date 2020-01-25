@@ -20,6 +20,7 @@ public class UtilityExamples : MonoBehaviour
         ShowDifferentEnums();
         CheckPointSide();
         CreateListFromArrayAndCopyIndices();
+        AngleBetweenPoints();
     }
 
     private void Update()
@@ -110,6 +111,20 @@ public class UtilityExamples : MonoBehaviour
         Debug.Log(integersToCopyElementsFrom.Count + " " + integersToCopyElementsFrom[2]);
         Thecelleu.Utilities.Copy<int>(ref integersAsList, integersToCopyElementsFrom, 2);
         Debug.Log(integersAsList[0] + " " + integersAsList[1] + " " + integersAsList[2] + " " + integersAsList[3]);
+    }
+
+    private void AngleBetweenPoints()
+    {
+        Vector2 pointA = new Vector2(0, 0);
+        Vector2 pointB = new Vector2(10, 10);
+        Vector2 pointC = new Vector2(0, 10);
+        Vector2 pointD = new Vector2(-10, 10);
+        Vector2 pointE = new Vector2(-10, -10);
+
+        Debug.Log("AngleBetweenPoints: " + Thecelleu.Utilities.GetAngleFromVector((pointB - pointA).normalized));
+        Debug.Log("AngleBetweenPoints: " + Thecelleu.Utilities.GetAngleFromVector((pointC - pointA).normalized));
+        Debug.Log("AngleBetweenPoints: " + Thecelleu.Utilities.GetAngleFromVector((pointD - pointA).normalized));
+        Debug.Log("AngleBetweenPoints: " + Thecelleu.Utilities.GetAngleFromVector((pointE - pointA).normalized));
     }
 }
 
