@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(UpdateBorders))]
 public class UpdateBordersEditor : Editor
 {
@@ -22,3 +24,4 @@ public class UpdateBordersEditor : Editor
         }
     }
 }
+#endif
