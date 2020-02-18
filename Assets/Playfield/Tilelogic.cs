@@ -14,11 +14,14 @@ public class Tilelogic : MonoBehaviour
 	private int player;
 	private GameSettingsAccess gameSettingsAccess;
 	
-	public void TileClicked(int player, Vector2 relativeClickPos, out bool tileClosed)
+	// and this is what we call lazy ass dirty multipurpose function. I just want this game shipped :)
+	public bool TileClicked(int player, Vector2 relativeClickPos, out bool somethingChanged)
 	{
 		bool tileFinished = false;
 		//tileState = Thecelleu.Utilities.RandomEnumValue<ClosedTiles>();
+		ClosedTiles beforeclick = tileState;
 		ClosedTiles sideToSet = GetClickDirection(relativeClickPos);
+
 		if (tileState == ClosedTiles.Close)
 		{
 			Debug.Log("this tile closed");
@@ -28,17 +31,30 @@ public class Tilelogic : MonoBehaviour
 		{
 			this.player = player;
 			TileSet(sideToSet);
+			if (tileState == ClosedTiles.Close)
+			{
+				tileFinished = true;
+			}
 		}
 		UpdateDisplayedTexture();
+
+		if (beforeclick == tileState)
+		{
+			somethingChanged = false;
+		}
+		else
+		{
+			somethingChanged = true;
+		}
 
 		bool neighbourClosed = UpdatedNeighbour(sideToSet);
 		if (neighbourClosed)
 		{
-			Debug.Log("neighbour tile closed");
+			//Debug.Log("neighbour tile closed");
 			tileFinished = true;
 		}
 
-		tileClosed = tileFinished;
+		return tileFinished;
 	}
 
 	public bool TileUpdateFromNeighbour(int player, ClosedTiles externalTileDirection)
@@ -67,6 +83,7 @@ public class Tilelogic : MonoBehaviour
 		}
 		else
 		{
+			Debug.Log("updating neighbour for player " + player);
 			this.player = player;
 			TileSet(sideToSet);
 		}
@@ -224,7 +241,7 @@ public class Tilelogic : MonoBehaviour
 		}
 
 		previousState = tileState;
-		Debug.Log(tileState);
+		//Debug.Log(tileState);
 	}
 
 	private Color GetPlayerColor()

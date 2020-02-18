@@ -19,7 +19,7 @@ public class WinTracker : MonoBehaviour
         pointsPerPlayer = new int[playerCount];
     }
 
-    public void CheckWinCondition()
+    public int CheckWinCondition()
     {
         pointsPerPlayer = new int[playerCount];
         bool allTilesHaveOwner = true;
@@ -52,11 +52,19 @@ public class WinTracker : MonoBehaviour
         if (allTilesHaveOwner)
         {
             Debug.Log(winningPlayer + " player won!");
-            RestartGame();
+        }
+
+        if (allTilesHaveOwner)
+        {
+            return winningPlayer;
+        }
+        else
+        {
+            return -1;
         }
     }
 
-    private void RestartGame()
+    public void RestartGame()
     {
         SceneManager.LoadScene(0);
     }

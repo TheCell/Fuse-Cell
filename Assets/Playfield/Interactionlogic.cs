@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Interactionlogic : MonoBehaviour
 {
+	[SerializeField] private UnityEngine.UI.Text currentPlayerTxt;
+	[SerializeField] private UnityEngine.UI.Text winnerFieldTxt;
+	[SerializeField] private UnityEngine.UI.Image playerColorBackground;
+	[SerializeField] private UnityEngine.UI.Image winnerColorBackground;
+	[SerializeField] private GameObject restartPanel;
+
 	private GameSettingsAccess gameSettingsAccess;
 	private int currentPlayer = 0;
 	private WinTracker wintracker;
@@ -32,17 +38,24 @@ public class Interactionlogic : MonoBehaviour
 				if (tile != null)
 				{
 					//int playernr = (int)Mathf.Round(Random.Range(0, 1.1f));
-					bool aTileClosed = false;
-					tile.TileClicked(currentPlayer, new Vector2(hitPoint.x, hitPoint.y), out aTileClosed);
+					bool somethingChanged = false;
+					bool aTileClosed = tile.TileClicked(currentPlayer, new Vector2(hitPoint.x, hitPoint.y), out somethingChanged);
 
 					if (!aTileClosed)
 					{
 						//Debug.Log("updateActivePlayer");
-						UpdateActivePlayer();
+						if (somethingChanged)
+						{
+							UpdateActivePlayer();
+						}
+						currentPlayerTxt.text = "Current Player: " + currentPlayer;
+						Color playercolor = gameSettingsAccess.GetPlayerColor(currentPlayer);
+						playercolor.a = 0.7f;
+						playerColorBackground.color = playercolor;
 					}
 					else
 					{
-						wintracker.CheckWinCondition();
+						HandleWinCondition(wintracker.CheckWinCondition());
 					}
 				}
 			}
@@ -56,5 +69,19 @@ public class Interactionlogic : MonoBehaviour
 		{
 			currentPlayer = 0;
 		}
+	}
+
+	private void HandleWinCondition(int winner)
+	{
+		if (winner < 0)
+		{
+			return;
+		}
+
+		winnerFieldTxt.text = "Winner is Player: " + winner;
+		Color playercolor = gameSettingsAccess.GetPlayerColor(currentPlayer);
+		playercolor.a = 0.7f;
+		winnerColorBackground.color = playercolor;
+		restartPanel.SetActive(true);
 	}
 }
